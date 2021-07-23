@@ -4,12 +4,12 @@ import  SearchBar from "../../components/SearchBar/SearchBar"
 
 import  VideoList from "../../components/VideoList/VideoList"
 
-import  VideoDetail  from "../../components/VideoDetail/VideoDetail"
+//import  VideoDetail  from "../../components/VideoDetail/VideoDetail"
 
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
-const baseURL='https://www.googleapis.com/youtube/v3';
+const baseURL='https://www.googleapis.com/youtube/v3/';
 const SEARCH_API=baseURL+"search?part=snippet&maxResults=5&key="+YOUTUBE_API_KEY+"&q="
 
 
@@ -21,12 +21,13 @@ const App = () => {
    
     const getMovies = (API) => {
         let dataBack;
+
     fetch(API)
       .then((res) => res.json())
       .then((data) => {
           console.log(data);
            
-    const { data: { items: videos } } = dataBack;
+    const { items: videos  } = data;
           setVideos(videos);
           setSelectedVideo(videos[0]);
       });
@@ -39,7 +40,6 @@ const App = () => {
             <SearchBar onSubmit={handleSubmit} />
           </div>
           <div>
-            <VideoDetail video={selectedVideo} />
           </div>
           <div>
             <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
