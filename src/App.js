@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link ,NavLink } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
-import Home from "./components/Home/Home.js";
-import Kids from "./components/Kids/Kids.js";
-import Movies from "./components/Movies/Movies.js";
-import Tv from "./components/Tv/Tv.js";
+import Home from "./view/Home/Home.js";
+import Kids from "./view/Kids/Kids.js";
+import Movies from "./view/Movies/Movies.js";
+import Tv from "./view/Tv/Tv.js";
+import Playback from "./view/Playback/Playback.js";
 import "./components/Navbar.css";
 
 
@@ -38,7 +39,10 @@ function App() {
                     </Route>
                     <Route path="/kids">
                         <Kids />
-                    </Route>
+                    </Route>  
+                    <Route path="/Playback">
+                        <Playback />
+                    </Route>  
                     <Route path="/">
                         <Home />
                     </Route>

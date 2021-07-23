@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 
-import { SearchBar, VideoList, VideoDetail } from "./components";
+import  SearchBar from "../../components/SearchBar/SearchBar"
+
+import  VideoList from "../../components/VideoList/VideoList"
+
+import  VideoDetail  from "../../components/VideoDetail/VideoDetail"
 
 
- baseURL='https://www.googleapis.com/youtube/v3';
+const API_KEY = process.env.REACT_APP_API_KEY;
+const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+const baseURL='https://www.googleapis.com/youtube/v3';
+const SEARCH_API=baseURL+"search?part=snippet&maxResults=5&key="+YOUTUBE_API_KEY+"&q="
 
 
 const App = () => {
@@ -19,20 +26,10 @@ const App = () => {
       .then((data) => {
           console.log(data);
            
-    const { data: { items: videos } } = data;
+    const { data: { items: videos } } = dataBack;
           setVideos(videos);
           setSelectedVideo(videos[0]);
       });
-  };
-
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-
-    if (searchTerm) {
-      getMovies(SEARCH_API + searchTerm);
-
-      setSearchTerm("");
-    }
   };
 
 
@@ -50,7 +47,7 @@ const App = () => {
         </div>
   );
 
-  async function handleSubmit(searchTerm) {
+    async function handleSubmit(searchTerm) {/*
     const { data: { items: videos } } = await youtube.get("search", {
       params: {
         part: "snippet",
@@ -59,10 +56,11 @@ const App = () => {
         key: process.env.REACT_APP_API_KEY,
         q: searchTerm,
       }
-    });
+    });*/
       // 
        //"search?part=snippet&maxResults=5&key="+API_KEY+"&q="+searchTerm
 
+    getMovies(SEARCH_API + searchTerm);
     setVideos(videos);
     setSelectedVideo(videos[0]);
   }
