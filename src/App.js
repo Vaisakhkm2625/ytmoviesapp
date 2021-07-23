@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link ,NavLink } from "react-router-dom";
-import logo from './logo.svg';
-import './App.css';
 import Home from "./view/Home/Home.js";
 import Kids from "./view/Kids/Kids.js";
 import Movies from "./view/Movies/Movies.js";

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Movie from "./Movie.js" 
+import Movie from "./Movie.js"
+import "./Movies.css"
 const API_KEY = process.env.REACT_APP_API_KEY;
 const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -43,12 +44,12 @@ function Movies() {
   };
 
     return (
-      <div className="home">
-        <div className="banner">
+      <div className="movies-container">
+        <div className="movies-banner">
 
           <form onSubmit={handleOnSubmit}>
             <input
-              className="search"
+              className="movies-search"
               type="search"
               placeholder="search..."
               value={searchTerm}
@@ -61,7 +62,7 @@ function Movies() {
             alt="img"
           />
         </div>
-        <div className="movie-container">
+            <div className="movies-movie-container">
           {movies.length > 0 &&
             movies.map((movie) => <Movie key={movie.id} {...movie} />)}
         </div>
