@@ -1,10 +1,11 @@
 import React from "react";
+import "./VideoItem.css";
 
 const VideoItem = ({ video, onVideoSelect }) => {
   return (
-      <div className="VideoItem" style={{ display: "flex", alignItems: "center", cursor: "pointer" }} onClick={() => onVideoSelect(video)} >
+      <div className="video-item" onClick={() => onVideoSelect(video)} >
         <img style={{ marginRight: "20px" }} alt="thumbnail" src={video.snippet.thumbnails.medium.url} />
-        <div className="VideoItem-title" >
+        <div className="video-item-title" >
           <b>{video.snippet.title}</b>
         </div>
       </div>

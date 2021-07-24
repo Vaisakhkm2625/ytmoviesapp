@@ -19,8 +19,11 @@ const Home = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({ id: {}, snippet: {} });
 
-   return (
-       <>hi</>
+    return (
+        <div>
+             
+       <Link to="/Playback">Play</Link>
+        </div>
   );
 }
 

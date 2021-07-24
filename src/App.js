@@ -23,8 +23,6 @@ function App() {
                             </div>
                         </nav>
 
-                        {/* A <Switch> looks through its children <Route>s and
-                        renders the first one that matches the current URL. */}
                     </div>
 
                 </header>
@@ -38,9 +36,7 @@ function App() {
                     <Route path="/kids">
                         <Kids />
                     </Route>  
-                    <Route path="/Playback">
-                        <Playback />
-                    </Route>  
+                        <Route path="/Playback/:vid" component={Playback} />
                     <Route path="/">
                         <Home />
                     </Route>
